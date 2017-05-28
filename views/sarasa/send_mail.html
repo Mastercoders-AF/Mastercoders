@@ -1,0 +1,42 @@
+
+<div ng-controller="mailController" id="wrapper"  >
+  <div ng-include="'partials/navigation_Chief.html'"></div>
+  <!--<link href="/css/fresh-bootstrap-table.css" rel="stylesheet" /> -->
+  <br>
+  <br>
+  <div class="container">
+    <form class="well WOW bounceIn" >
+     <div class="content-container clearfix "> <!-- WOW bounceIn-->
+         <h1 class="content-title">Drug Request Mail Sender</h1>
+         <div class="col-md-12">
+             <div class="form-group">
+               <label for="sel1">Select Mail to Send:</label>
+               <select class="form-control"  ng-model="mail.from">
+                 <option value="gunawardhanasarasa@gmail.com"> Mail 1</option>
+                 <option>2</option>
+                 <option>3</option>
+                 <option>4</option>
+               </select>
+             </div>
+             <div class="form-group">
+                <label for="sel1">Select Supplier's Mail:</label>
+                <select class="form-control"  ng-model="mail.to">
+                  <option ng-repeat="supplier in suppliers" value="{{supplier.email}}"> {{supplier.email}} </option>
+                </select>
+             </div>
+             <div class="form-group">
+                 <input type="text" class="form-control" ng-model="mail.subject" placeholder="Subject :" />
+             </div>
+             <textarea class="form-control" placeholder="message" ng-model="mail.text" style="height:200px;" ></textarea>
+             <hr>
+             <div class="btn-send">
+             <button class="btn btn-success btn-lg" ng-click="sendMail(mail)"><span class="fa fa-fw fa-send"></span> Send</button>
+             </div>
+             <hr>
+         </div>
+     </div>
+   </form>
+ </div>
+
+
+ </div>
